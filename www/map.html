@@ -1,43 +1,72 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="ru">
   <head>
     <meta charset="utf-8">
-    <title>Карта</title>
-
-    <!-- Sets initial viewport load and disables zooming  -->
+    <title>Веломосква</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-
-    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-    <!-- Include the compiled Ratchet CSS -->
-    <link href="css/ratchet.css" rel="stylesheet">
-    <!-- <link href="css/ratchet-theme-ios.css" rel="stylesheet"> -->
+    <!-- Roboto -->
+    <!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,500,700"> -->
 
-
-    <!-- Include the compiled Ratchet JS -->
-    <script src="js/ratchet.js"></script>
+    <link rel="stylesheet" href="css/ratchet.min.css">
+    <link rel="stylesheet" href="css/ratchet-theme-android.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    
+    
+    <script src="js/ratchet.min.js"></script>
+    
+    
   </head>
   <body>
-
-    <!-- Make sure all your bars are the first things in your <body> -->
     <header class="bar bar-nav">
-      <h1 class="title">Ближайшие велопарковки на карте</h1>
+      <!-- <a class="icon icon-search pull-right" href="map.html"></a> -->
+      <a href="#navPopover">
+        <h1 class="title">
+          <a class="icon icon-left-nav" href="index.html"></a>
+          <!-- <span class="icon icon icon-left-nav"></span> -->
+          Карта
+          <span class="icon icon-caret"></span>
+        </h1>
+      </a>
     </header>
 
-    <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
     <div class="content">
-      
-<!--       <p class="content-padded">Thanks for downloading Ratchet. This is an example HTML page that's linked up to compiled Ratchet CSS and JS, has the proper meta tags and the HTML structure. Need some more help before you start filling this with your own content? Check out some Ratchet resources:</p>
- -->
-
-      <div class="card">
 
 <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d2245.3627777242345!2d37.542005!3d55.752199999999995!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2s!4v1398507898851" width="400" height="450" frameborder="0" style="border:0"></iframe>
 
-      </div>
+    </ul>
+
     </div>
 
+    <!-- Compose modal -->
+<!--     <div id="composeModal" class="modal">
+      <header class="bar bar-nav">
+        <a class="icon icon-left pull-left" href="#composeModal"></a>
+        <h1 class="title">New note</h1>
+      </header>
+
+      <div class="content">
+        <form class="content-padded">
+          <input type="text" placeholder="Title">
+          <textarea rows="10"></textarea>
+          <a class="btn btn-positive btn-block" href="#composeModal">Save note</a>
+        </form>
+      </div>
+    </div> --><!-- /.modal -->
+
+    <!-- Popover -->
+    <div id="navPopover" class="popover">
+      <ul class="table-view">
+        <li class="table-view-cell">Велопарковки</li>
+        <li class="table-view-cell">Маршруты</li>
+        <li class="table-view-cell">Мой профиль</li>
+      </ul>
+    </div>
   </body>
 </html>
+
+
+

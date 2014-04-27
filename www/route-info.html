@@ -1,29 +1,36 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="ru">
   <head>
     <meta charset="utf-8">
-    <title>Описание маршрута</title>
-
-    <!-- Sets initial viewport load and disables zooming  -->
+    <title>Веломосква</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-
-    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-    <!-- Include the compiled Ratchet CSS -->
-    <link href="css/ratchet.css" rel="stylesheet">
-    <link href="css/ratchet-theme-ios.css" rel="stylesheet">
+    <!-- Roboto -->
+    <!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,500,700"> -->
 
-
-    <!-- Include the compiled Ratchet JS -->
-    <script src="ratchet.js"></script>
+    <link rel="stylesheet" href="css/ratchet.min.css">
+    <link rel="stylesheet" href="css/ratchet-theme-android.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    
+    
+    <script src="js/ratchet.min.js"></script>
+    
+    
   </head>
   <body>
 
-    <!-- Make sure all your bars are the first things in your <body> -->
     <header class="bar bar-nav">
-      <h1 class="title"> Имя маршрута </h1>
+      <!-- <a class="icon icon-search pull-right" href="map.html"></a> -->
+      <a href="#navPopover">
+        <h1 class="title">
+          <a class="icon icon-left-nav" href="routes.html"></a>
+          Маршруты
+          <span class="icon icon-caret"></span>
+        </h1>
+      </a>
     </header>
 
     <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
@@ -31,10 +38,41 @@
 
       <div class="card">
 
-          Маршрут в деталях
-
+      <div class="media">
+        <img class="media-object pull-left" src="http://placehold.it/42x42">
+                <div class="media-body">
+                  Мир Пречистенки и Арбата
+                  <p>Пречистенка, Арбат и переулки между ними еще с конца XVII века становятся одним из самых аристократических районов Москвы. В конце XIX века на смену аристократии приходит богатое купечество. Разным сторонам жизни московских буржуа и посвящена эта велосипедная прогулка.</p>
+                </div>
+        </div>
       </div>
+
     </div>
 
+    <!-- Compose modal -->
+<!--     <div id="composeModal" class="modal">
+      <header class="bar bar-nav">
+        <a class="icon icon-left pull-left" href="#composeModal"></a>
+        <h1 class="title">New note</h1>
+      </header>
+
+      <div class="content">
+        <form class="content-padded">
+          <input type="text" placeholder="Title">
+          <textarea rows="10"></textarea>
+          <a class="btn btn-positive btn-block" href="#composeModal">Save note</a>
+        </form>
+      </div>
+    </div> --><!-- /.modal -->
+
+    <!-- Popover -->
+    <div id="navPopover" class="popover">
+      <ul class="table-view">
+        <li class="table-view-cell">Велопарковки</li>
+        <li class="table-view-cell">Маршруты</li>
+        <li class="table-view-cell">Мой профиль</li>
+      </ul>
+    </div>
   </body>
 </html>
+
