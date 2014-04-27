@@ -6,7 +6,7 @@
         id        = "com.freshcube.moskvobus"
         version   = "1.0.0">
 
-    <name>Вело-Москва</name>
+    <name>Velo-Moskva</name>
 
     <description>
         Вело-Москва - Приложение для Хакатона открытых данных правительства Москвы
