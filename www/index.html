@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -13,11 +12,17 @@
 
     <link rel="stylesheet" href="css/ratchet.min.css">
     <link rel="stylesheet" href="css/ratchet-theme-android.min.css">
-    <link rel="stylesheet" href="css/app.css">
-    
-    
+    <!--<link rel="stylesheet" href="css/app.css">-->
+
     <script src="js/ratchet.min.js"></script>
-  	
+    <!--<script src="js/datajs-1.1.2.min.js"></script>-->
+    <script src="js/datajs-1.1.2.js"></script>
+    <script src="js/jquery-2.1.1.min.js"></script>
+
+    <script src="js/velomoskva.js"></script>
+
+
+
 
   </head>
   <body>
@@ -26,7 +31,7 @@
       <a href="#navPopover">
         <h1 class="title">
           <span class="icon icon-home"></span>
-          Велопарковки
+          Велопарковки JS
           <span class="icon icon-caret"></span>
         </h1>
       </a>
@@ -34,7 +39,7 @@
 
     <div class="content">
 
-          	<ul class="table-view">
+          	<ul class="table-view" id="parkingList">
 		  <li class="table-view-cell">
 		    <a class="navigate-right" href="map.html">
 		      <span class="badge">250 м</span>
@@ -85,4 +90,26 @@
       </ul>
     </div>
   </body>
+
+  <script>
+       alert("bbbb");
+      fillParkingList();
+      //        document.write("haha");
+      //        document.close();
+      //        window.open("http://www.freshcube.ru");
+
+//      var parkingList = document.getElementById("parkingList");
+//
+//      //        var newItem = document.createElement("li");
+//
+////      var c = document.createTextNode("hhhhhhh");
+//      var c = document.createElement("li");
+//      c.innerHTML = "<a class=\"navigate-right\" href=\"map.html\"><span class=\"badge\">250 м</span>Dyna!</a>";
+//      c.className = "table-view-cell";
+//      parkingList.appendChild(c);
+
+  </script>
+
+
+
 </html>
