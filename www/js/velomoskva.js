@@ -17,21 +17,31 @@ function test_vms()
     parkingList.appendChild(c);
 }
 
+function apiCallSuccess (data){
+    // Вывести результат.
+}
+
+function apiCallFailure(error){
+    alert(['apiCallFailure', error]);
+}
+
 function fillParkingList()
 {
     // GET http://api.data.mos.ru/v1/datasets/915/rows?api_key=45e0d8cbfa0cfac2df76c200230b7056?$top=3&$orderby=Number
     // GET http://api.data.mos.ru/v1/datasets/915/rows?api_key=45e0d8cbfa0cfac2df76c200230b7056
 
+    
     try {
         //
         OData.read(
             "http://api.data.mos.ru/v1/datasets/915/rows?api_key=45e0d8cbfa0cfac2df76c200230b7056",
+            apiCallSuccess, apiCallFailure
 //            "http://services.odata.org/Northwind/Northwind.svc/Categories",
-            function (data) {
+            /*function (data) {
                  var html = "";
                  //$.each(data.results, function(l) { html += "<div>" + l.CategoryName + "</div>"; });
                  //$(html).appendTo($("#target-element-id"));
-            }
+            }*/
         );
         // Вывести результат.
 
