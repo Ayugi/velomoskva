@@ -23,6 +23,10 @@ function apiCallSuccess (data){
 
 function apiCallFailure(error){
     alert(['apiCallFailure', error]);
+    $.each(error, function(el){
+        alert(['key', el, 'value', error[el]]);
+    })
+
 }
 
 function fillParkingList()
