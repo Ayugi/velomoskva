@@ -8107,6 +8107,7 @@
 
         var i, len;
         for (i = 0, len = handlers.length; i < len && !handlers[i][handlerMethod](requestOrResponse, context); i++) {
+            alert([handlers[i].accept,handlers[i][handlerMethod]])
         }
 
         if (i === len) {
