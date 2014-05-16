@@ -1,3 +1,27 @@
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+<script src="latlon.js">/* Latitude/Longitude formulae */</script>
+<script src="geo.js">/* Geodesy representation conversions */</script>
+
+<script>
+  $(document).ready(function() {
+    $('#calc-dist').click(function() {
+      var p1 = new LatLon(Geo.parseDMS($('#lat1').val()), Geo.parseDMS($('#lon1').val()));
+      var p2 = new LatLon(Geo.parseDMS($('#lat2').val()), Geo.parseDMS($('#lon2').val()));
+      $('#result-distance').html(p1.distanceTo(p2)+' km');
+    });
+  });
+</script>
+...
+<form>
+  Lat1: <input type="text" name="lat1" id="lat1"> Lon1: <input type="text" name="lon1" id="lon1">
+  Lat2: <input type="text" name="lat2" id="lat2"> Lon2: <input type="text" name="lon2" id="lon2">
+  <button id="calc-dist">Calculate distance</button>
+  <output id="result-distance"></output>
+</form>
+
+
 // This will parse a delimited string into an array of
 // arrays. The default delimiter is the comma, but this
 // can be overriden in the second argument.
