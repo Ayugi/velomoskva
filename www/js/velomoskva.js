@@ -2,36 +2,22 @@
  * Created by Yura on 04.05.2014.
  */
 
-function test_vms()
-{
-    var parkingList = document.getElementById("parkingList");
-    var c = document.createElement("li");
-    c.innerHTML = "<a class=\"navigate-right\" href=\"map.html\"><span class=\"badge\">250 м</span>Dyna22!</a>";
-    c.className = "table-view-cell";
-    parkingList.appendChild(c);
-}
-
-/*function apiCallSuccess (data){
-    // Вывести результат.
-    console.log( data ); // server response
-}
-
-function apiCallFailure(error){
-    alert(['apiCallFailure', error]);
-    $.each(error, function(el){
-        alert(['key', el, 'value', error[el]]);
-    })
-
-}*/
-
 function fillParkingList()
 {
     console.log( "IN fillParkingList" );
     // GET http://api.data.mos.ru/v1/datasets/915/rows?api_key=45e0d8cbfa0cfac2df76c200230b7056?$top=3&$orderby=Number
 
-    var currentLat = 55.8166345;
-    var currentLon = 37.7191818;
-    
+    // var currentLat = 55.8166345;
+    // var currentLon = 37.7191818;
+
+    var currentLat = 0;
+    var currentLon = 0;
+
+    var p = getCurrentPostion();
+    if(p) {
+        currentLat = p.coords.latitude;
+        currentLon = p.coords.longitude;        
+    }
 
     var p2Current = new LatLon(currentLat, currentLon);
 
@@ -65,7 +51,11 @@ function fillParkingList()
                 return a.distance - b.distance;
             }
 
-            response = response.sort(compareDistance);
+            response = response.sort(function(a,b) {
+                // console.log(a.distance);
+                // console.log(b.distance);
+                return a.distance - b.distance;
+            });
 
             response.forEach(function(entry) {
                 var parkingName = entry.Cells.NAME;
@@ -91,6 +81,8 @@ function getCurrentPostion()
     //   This method accepts a `Position` object, which contains
     //   the current GPS coordinates
     //
+    var p;
+
     var onSuccess = function(position) {
         alert('Latitude: '          + position.coords.latitude          + '\n' +
               'Longitude: '         + position.coords.longitude         + '\n' +
@@ -100,6 +92,7 @@ function getCurrentPostion()
               'Heading: '           + position.coords.heading           + '\n' +
               'Speed: '             + position.coords.speed             + '\n' +
               'Timestamp: '         + position.timestamp                + '\n');
+        p = position;
     };
 
     // onError Callback receives a PositionError object
@@ -110,4 +103,6 @@ function getCurrentPostion()
     }
 
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
+    return p;
 }

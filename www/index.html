@@ -20,6 +20,8 @@
     <script src="js/latlon.js">/* Latitude/Longitude formulae */</script>
 	<script src="js/geo.js">/* Geodesy representation conversions */</script>
 
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script> 
+	<script type="text/javascript" src="js/map-ui/jquery.ui.map.js"></script>
 
     <script src="js/velomoskva.js"></script>
 
@@ -30,13 +32,15 @@
       <a href="#navPopover">
         <h1 class="title">
           <span class="icon icon-home"></span>
-          Велопарковки JS
+          Велопарковки
           <span class="icon icon-caret"></span>
         </h1>
       </a>
     </header>
 
     <div class="content">
+
+		<!-- <div id="map_canvas" style="width:450px;height:350px"></div> -->
 
         <ul class="table-view" id="parkingList">
         
@@ -80,8 +84,26 @@
   </body>
 
   <script>
+      
+/*        $(function() {
+                // Also works with: var yourStartLatLng = '59.3426606750, 18.0736160278';
+                var yourStartLatLng = new google.maps.LatLng(55.8166345, 37.7191818);
+                $('#map_canvas').gmap({'zoom': 15, 'center': yourStartLatLng});
+
+     //            $('#map_canvas').gmap('addMarker', {'position': '55.8166345, 37.7191818', 'bounds': false}).click(function() {
+					// $('#map_canvas').gmap('openInfoWindow', {'content': 'Hello World!'}, this);		});
+
+                $('#map_canvas').gmap('addMarker', {'position': '55.8166345, 37.7191818', 'bounds': false});
+
+                // $('#map_canvas').gmap('option', 'zoom', 8);
+
+        });*/
+
+      //getCurrentPostion();
       fillParkingList();
-      getCurrentPostion();
+
+
+
   </script>
 
 
