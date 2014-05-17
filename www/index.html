@@ -11,7 +11,8 @@
     <!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,500,700"> -->
 
     <link rel="stylesheet" href="css/ratchet.min.css">
-    <link rel="stylesheet" href="css/ratchet-theme-android.min.css">
+    <!--<link rel="stylesheet" href="css/ratchet-theme-android.min.css">-->
+    <link rel="stylesheet" href="css/ratchet-theme-ios.min.css">
     <!--<link rel="stylesheet" href="css/app.css">-->
 
     <script src="js/ratchet.min.js"></script>
@@ -27,35 +28,41 @@
 
   </head>
   <body>
-    <header class="bar bar-nav">
-      <a class="icon icon-search pull-right" href="map.html"></a>
-      <a href="#navPopover">
-        <h1 class="title">
-          <span class="icon icon-home"></span>
+    <header id="pageHeader" class="bar bar-nav" onclick="showParkingList()">
+        <a id= "backButton" style="display: none" class="btn btn-link btn-nav pull-left btn-back">
+            <span class="icon icon-left-nav"></span>
+        </a>
+        <h1 id="pageTitle" class="title">
           Велопарковки
-          <span class="icon icon-caret"></span>
         </h1>
-      </a>
     </header>
 
+
+    <!-- Parkings page >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
     <div class="content">
 
-		<!-- <div id="map_canvas" style="width:450px;height:350px"></div> -->
 
+        <div id="parkingListContent">
         <ul class="table-view" id="parkingList">
-        
-	<!-- 	  <li class="table-view-cell">
-		    <a class="navigate-right" href="map.html">
+
+<!--            <li class="table-view-cell">
+		    <a class="navigate-right" href="#" onClick="showMap();">
 		      <span class="badge">250 м</span>
 		      Большая Татарская, 35с4
 		    </a>
-		  </li> -->
-
+		  </li>-->
 
 		</ul>
+        </div>
 
+        <!-- Map page >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+        <div id="mapContent" style="width:100%; height:100%; display: none">
+            <div id="map_canvas" style="width:100%; height:100%"></div>
+        </div>
 
     </div>
+
+
 
     <!-- Compose modal -->
 <!--     <div id="composeModal" class="modal">
@@ -74,32 +81,20 @@
     </div> --><!-- /.modal -->
 
     <!-- Popover -->
-    <div id="navPopover" class="popover">
-      <ul class="table-view">
-        <li class="table-view-cell"><a href="index.html">Велопарковки</a></li>
-        <li class="table-view-cell"><a href="routes.html">Маршруты</a></li>
-        <li class="table-view-cell">Мой профиль</li>
-      </ul>
-    </div>
+    <!--<div id="navPopover" class="popover">-->
+      <!--<ul class="table-view">-->
+        <!--<li class="table-view-cell"><a href="index.html">Велопарковки</a></li>-->
+        <!--<li class="table-view-cell"><a href="routes.html">Маршруты</a></li>-->
+        <!--<li class="table-view-cell">Мой профиль</li>-->
+      <!--</ul>-->
+    <!--</div>-->
+
   </body>
 
   <script>
-      
-/*        $(function() {
-                // Also works with: var yourStartLatLng = '59.3426606750, 18.0736160278';
-                var yourStartLatLng = new google.maps.LatLng(55.8166345, 37.7191818);
-                $('#map_canvas').gmap({'zoom': 15, 'center': yourStartLatLng});
 
-     //            $('#map_canvas').gmap('addMarker', {'position': '55.8166345, 37.7191818', 'bounds': false}).click(function() {
-					// $('#map_canvas').gmap('openInfoWindow', {'content': 'Hello World!'}, this);		});
 
-                $('#map_canvas').gmap('addMarker', {'position': '55.8166345, 37.7191818', 'bounds': false});
 
-                // $('#map_canvas').gmap('option', 'zoom', 8);
-
-        });*/
-
-      //getCurrentPostion();
       fillParkingList();
 
 
