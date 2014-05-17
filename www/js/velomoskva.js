@@ -86,6 +86,7 @@ function fillParkingList()
             var currentLon = 0;
 
             var onSuccess = function(position) {
+/*
                 alert('Latitude: '          + position.coords.latitude          + '\n' +
                     'Longitude: '         + position.coords.longitude         + '\n' +
                     'Altitude: '          + position.coords.altitude          + '\n' +
@@ -94,6 +95,7 @@ function fillParkingList()
                     'Heading: '           + position.coords.heading           + '\n' +
                     'Speed: '             + position.coords.speed             + '\n' +
                     'Timestamp: '         + position.timestamp                + '\n');
+*/
                 var p = position;
                 currentLat = p.coords.latitude;
                 currentLon = p.coords.longitude;
