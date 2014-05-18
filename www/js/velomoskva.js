@@ -100,13 +100,15 @@ function fillHtmlList(parks, curPosition)
             parkingName = parkingName.replace(/№\d{5}/g, "");
             parkingName = parkingName.replace(/  /g, "");
 
+            var parkingNameOrig = parkingName; // store single line
+
             if(parkingName.length > MAX_SINGLE_LINE) // вставляем перевод строки после второго слова
                 parkingName = parkingName.replace(/\S+\s\S+/, "$&<br/>");
 
             console.log("'"+parkingName+"'");
 
             var text = '<li class="table-view-cell"><a class="navigate-right" href="#" onClick="showMap('
-                + "'" + parkingName + "'," + parks[i].pos.lat + ',' + parks[i].pos.lon + ');"><span class="badge">'
+                + "'" + parkingNameOrig + "'," + parks[i].pos.lat + ',' + parks[i].pos.lon + ');"><span class="badge">'
                 + parks[i].distance +' км</span> <div style="">' + parkingName + '</div></a></li>';
 
             $("#parkingList").append(text);
