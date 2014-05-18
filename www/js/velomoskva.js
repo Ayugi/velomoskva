@@ -7,8 +7,8 @@
 var curPos;
 curPos = 0;
 
-const PARKINGS_LIMIT = 20;
-
+const PARKINGS_LIMIT = 10;
+const MAX_SINGLE_LINE = 23;
 
 function showMap(parkName, parkPosLat, parkPosLon)
 {
@@ -95,15 +95,20 @@ function fillHtmlList(parks, curPosition)
         for (var i = 0; i < PARKINGS_LIMIT; i++) {
             var parkingName = parks[i].Cells.NAME;
 
-            parkingName = parkingName.replace(/Велосипедная парковка /g, "");
+            parkingName = parkingName.replace(/Велосипедная парковка/g, "");
             parkingName = parkingName.replace(/\"/g, "");
             parkingName = parkingName.replace(/№\d{5}/g, "");
+            parkingName = parkingName.replace(/  /g, "");
 
+            if(parkingName.length > MAX_SINGLE_LINE) // вставляем перевод строки после второго слова
+                parkingName = parkingName.replace(/\S+\s\S+/, "$&<br/>");
+
+            console.log("'"+parkingName+"'");
 
             var text = '<li class="table-view-cell"><a class="navigate-right" href="#" onClick="showMap('
                 + "'" + parkingName + "'," + parks[i].pos.lat + ',' + parks[i].pos.lon + ');"><span class="badge">'
-                + parks[i].distance +' км</span>' + parkingName + '</a></li>';
-            // console.log(text);
+                + parks[i].distance +' км</span> <div style="">' + parkingName + '</div></a></li>';
+
             $("#parkingList").append(text);
         }
 /*
