@@ -7,6 +7,8 @@
 var curPos;
 curPos = 0;
 
+const PARKINGS_LIMIT = 20;
+
 
 function showMap(parkName, parkPosLat, parkPosLon)
 {
@@ -87,8 +89,6 @@ function fillHtmlList(parks, curPosition)
             // console.log(b.distance);
             return a.distance - b.distance;
         });
-
-        const PARKINGS_LIMIT = 5;
 
         var limit = PARKINGS_LIMIT;
         if(limit > parks.length) limit = parks.length;
